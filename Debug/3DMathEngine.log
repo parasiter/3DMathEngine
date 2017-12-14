@@ -1,0 +1,99 @@
+﻿  源.cpp
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(53): error C4578: “abs”: 从“float”到“int”的转换，可能丢失数据(你的意思是调用“fabsf”或进行 #include <cmath>?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(57): error C4578: “abs”: 从“float”到“int”的转换，可能丢失数据(你的意思是调用“fabsf”或进行 #include <cmath>?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(143): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(148): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(211): error C2061: 语法错误: 标识符“POINT3DF”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(213): error C2061: 语法错误: 标识符“POINT3DF”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(213): error C2535: “PLANE3D::PLANE3D(void)”: 已经定义或声明成员函数
+  c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(211): note: 参见“PLANE3D::PLANE3D”的声明
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(211): error C2065: “p”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(211): error C2065: “v”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(213): error C2065: “p1”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(215): error C2065: “p2”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(215): error C2065: “p1”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(216): error C2065: “p3”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(216): error C2065: “p2”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(233): error C2007: #define 语法
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(234): error C2059: 语法错误:“public”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(242): error C2646: 全局或命名空间范围的匿名 union 必须声明为静态
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(245): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(250): warning C4508: “HOMOGENOURS_CONDINATE”: 函数应返回一个值；假定“void”返回类型
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(253): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(262): warning C4508: “HOMOGENOURS_CONDINATE”: 函数应返回一个值；假定“void”返回类型
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(265): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(270): warning C4508: “HOMOGENOURS_CONDINATE”: 函数应返回一个值；假定“void”返回类型
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(272): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(272): error C2143: 语法错误: 缺少“,”(在“&”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(273): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(276): error C2065: “ho”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(276): error C2228: “.data”的左边必须有类/结构/联合
+  c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(276): note: 类型是“unknown-type”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(278): warning C4508: “HOMOGENOURS_CONDINATE”: 函数应返回一个值；假定“void”返回类型
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(280): error C2143: 语法错误: 缺少“;”(在“=”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(280): error C2433: “HOMOGENOURS_CONDINATE”: 不允许在数据声明中使用“inline”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(280): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(280): error C2365: “HOMOGENOURS_CONDINATE”: 重定义；以前的定义是“函数”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(280): error C2143: 语法错误: 缺少“,”(在“&”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(281): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(281): error C2801: “operator =”必须是非静态成员
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(284): error C2065: “ho”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(284): error C2228: “.data”的左边必须有类/结构/联合
+  c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(284): note: 类型是“unknown-type”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(293): error C2143: 语法错误: 缺少“;”(在“*”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(293): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(293): error C2365: “HOMOGENOURS_CONDINATE”: 重定义；以前的定义是“函数”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(293): error C2143: 语法错误: 缺少“,”(在“&”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(294): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(294): error C2803: “operator *”必须至少有一个类类型的形参
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(302): error C2065: “h”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(302): error C2228: “.data”的左边必须有类/结构/联合
+  c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(302): note: 类型是“unknown-type”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(306): error C2064: 项不会计算为接受 1 个参数的函数
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(309): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(309): error C2365: “HOMOGENOURS_CONDINATE”: 重定义；以前的定义是“函数”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(309): error C2146: 语法错误: 缺少“;”(在标识符“Transposition”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(310): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(310): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(324): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(324): error C2365: “HOMOGENOURS_CONDINATE”: 重定义；以前的定义是“函数”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(324): error C2146: 语法错误: 缺少“;”(在标识符“Adjugate”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(325): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(325): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(328): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(328): error C2365: “HOMOGENOURS_CONDINATE”: 重定义；以前的定义是“函数”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(328): error C2146: 语法错误: 缺少“;”(在标识符“Inverse”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(329): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(329): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(335): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(335): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\3dmathengine.h(335): error C2059: 语法错误:“}”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\源.cpp(8): fatal error C1004: 发现意外的文件尾
+  Vector.cpp
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(32): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(33): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\vector.h(20): error C4578: “abs”: 从“float”到“int”的转换，可能丢失数据(你的意思是调用“fabsf”或进行 #include <cmath>?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\vector.h(24): error C4578: “abs”: 从“float”到“int”的转换，可能丢失数据(你的意思是调用“fabsf”或进行 #include <cmath>?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\vector.h(99): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\vector.cpp(21): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+  Parmline.cpp
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(32): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(33): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\vector.h(20): error C4578: “abs”: 从“float”到“int”的转换，可能丢失数据(你的意思是调用“fabsf”或进行 #include <cmath>?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\vector.h(24): error C4578: “abs”: 从“float”到“int”的转换，可能丢失数据(你的意思是调用“fabsf”或进行 #include <cmath>?)
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\vector.h(99): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\parmline.h(16): error C2059: 语法错误:“{”
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\parmline.h(16): error C2334: “{”的前面有意外标记；跳过明显的函数体
+  MathUtil.cpp
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(32): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(33): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.cpp(7): warning C4244: “-=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.cpp(22): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+  EularAngles.cpp
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(32): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\mathutil.h(33): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\eularangles.cpp(38): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\eularangles.cpp(43): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\eularangles.cpp(45): error C2065: “headi”: 未声明的标识符
+c:\users\1805wufan\documents\visual studio 2015\projects\3dmathengine\3dmathengine\eularangles.cpp(45): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+  正在生成代码...
