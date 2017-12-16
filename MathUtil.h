@@ -11,11 +11,6 @@
 #define EPSILON_E5 (float)(1E-5)
 #define EPSILON_E6 (float)(1E-6)
 
-// 用于参数化直线函数及其返回值。
-#define PARM_LINE_NO_INTERSECT_PARALLEL  1
-#define PARM_LINE_INTERSECT_EVERYWHERE 2
-#define PARM_LINE_INTERSECT_POINT 3
-#define PARM_LINE_NO_INTERSECT_NO_PARALLEL 4
 
 #define MAX(a,b) ((a)<(b) ? (b):(a))
 #define MIN(a,b) ((a)<(b) ? (a):(b))

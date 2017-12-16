@@ -158,8 +158,10 @@
   <ItemGroup>
     <ClCompile Include="EulerAngles.cpp" />
     <ClCompile Include="MathUtil.cpp" />
+    <ClCompile Include="Matrix4x3.cpp" />
     <ClCompile Include="Parmline.cpp" />
     <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="RotationMatrix.cpp" />
     <ClCompile Include="VECTOR3D.cpp" />
     <ClCompile Include="源.cpp" />
   </ItemGroup>
