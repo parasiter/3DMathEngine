@@ -3,6 +3,7 @@
 #include"EulerAngles.h"
 #include"Matrix4x3.h"
 #include"RotationMatrix.h"
+#include<cassert>
 
 inline void Matrix4x3::identity()
 {
@@ -173,18 +174,200 @@ void Matrix4x3::setupScale(const VECTOR3D&s)
 	m31 = 0.0f, m32 = 0.0f, m33 = s.z;
 	tx = ty = tz = 0.0f;
 }
-void Matrix4x3::setupScaleAlongAxis(const VECTOR3D&axis, float k);
-void Matrix4x3::setupShear(int axis, float s, float t);
-void Matrix4x3::setupProject(const VECTOR3D&n);
-void Matrix4x3::setupReflect(int axis, float k = 0.0f);
-void Matrix4x3::setupReflect(const VECTOR3D&);
+//沿任意轴缩放k倍，该轴为单位向量
+void Matrix4x3::setupScaleAlongAxis(const VECTOR3D&axis, float k)
+{
+	assert(fabs(axis.dot(axis) - 1.0f) < EPSILON_E4);
+	//V.dot(N)*N*k+V-V.dot(N)*N;
+	float a = k = 1.0f;
+	float ax = a*axis.x;
+	float ay = a*axis.y;
+	float az = a*axis.z;
 
-VECTOR3D operator*(const VECTOR3D &, const Matrix4x3&);
-Matrix4x3 operator*(const Matrix4x3&, const Matrix4x3&);
-VECTOR3D &operator*=(VECTOR3D&p, const Matrix4x3&);
-Matrix4x3 &operator*=(Matrix4x3&, const Matrix4x3&);
-float determinant(const Matrix4x3&);
-Matrix4x3 inverse(const Matrix4x3&);
-VECTOR3D getTranslation(const Matrix4x3&);
-VECTOR3D getPositionFromParentToLocalMatrix(const Matrix4x3&);
-VECTOR3D getPositionFromLocalToParent(const Matrix4x3&);
+	m11 = ax*axis.x + 1.0f;
+	m22 = ay*axis.y + 1.0f;
+	m33 = az*axis.z + 1.0f;
+
+	m12 = m21 = ax*axis.y;
+	m13 = m31 = ax*axis.z;
+	m23 = m32 = ay*axis.z;
+
+	tx = ty = tz = 0.0f;
+}
+void Matrix4x3::setupShear(int axis, float s, float t)
+{
+	//切变是取出一个坐标，乘以不同的因子再加到其他两个坐标上。
+	//切变坐标由axis的索引指示。
+	switch(axis) {
+	case 1 :
+		m11 = 1.0f, m12 = s, m13 = t;
+		m21 = 0.0f, m22 = 1.0f, m23 = 0.0f;
+		m31 = 0.0f, m32 = 0.0f, m33 = 1.0f;
+		break;
+	case 2:
+		m11 = 1.0f, m13 = 0.0f, m13 = 0.0f;
+		m21 = s, m22 = 1.0f, m23 = t;
+		m31 = 0.0f, m32 = 0.0f, m33 = 1.0f;
+		break;
+	case 3:
+		m11 = 1.0f, m13 = 0.0f, m13 = 0.0f;
+		m21 = 0.0f, m22 = 1.0f, m23 = 0.0f;
+		m31 = s, m32 = t, m33 = 1.0f;
+		break;
+	default:
+		assert(false);
+	}
+	tx = ty = tz = 0.0f;
+	
+}
+//投影矩阵
+void Matrix4x3::setupProject(const VECTOR3D&n)
+{
+	assert(fabs(n.dot(n) - 1.0f < EPSILON_E4));
+	
+	m11 = 1.0f - n.x*n.x;
+	m22 = 1.0f - n.y*n.y;
+	m33 = 1.0f - n.z*n.z;
+
+	m12 = m21 = -n.x*n.y;
+	m13 = m31 = -n.x*n.z;
+	m23 = m32 = -n.y*n.z;
+
+	tx = ty = tz = 0.0f;
+}
+//按坐标轴反射
+void Matrix4x3::setupReflect(int axis, float k = 0.0f)
+{
+	switch (axis)
+	{
+	case 1:
+		m11 = -1.0f, m12 = 0.0f, m13 = 0.0f;
+		m21 = 0.0f, m22 = 1.0f, m23 = 0.0f;
+		m31 = 0.0f, m32 = 0.0f, m33 = 1.0f;
+
+		tx = 2.0f*k;
+		ty = 0.0f;
+		tz = 0.0f;
+		break;
+	case 2:
+		m11 = 1.0f, m12 = 0.0f, m13 = 0.0f;
+		m21 = 0.0f, m22 = -1.0f, m23 = 0.0f;
+		m31 = 0.0f, m32 = 0.0f, m33 = 1.0f;
+
+		tx = 0.0f;
+		ty = 2.0f*k;
+		tz = 0.0f;
+		break;
+	case 3:
+		m11 = 1.0f, m12 = 0.0f, m13 = 0.0f;
+		m21 = 0.0f, m22 = 1.0f, m23 = 0.0f;
+		m31 = 0.0f, m32 = 0.0f, m33 = -1.0f;
+
+		tx = 0.0f;
+		ty = 0.0f;
+		tz = 2.0f*k;
+		break;
+	default : 
+		assert(false);
+	}
+}
+void Matrix4x3::setupReflect(const VECTOR3D&n)
+{
+	assert(fabs(n.dot(n) - 1.0f) < EPSILON_E4);
+	float ax = -2.0f*n.x;
+	float ay = -2.0f*n.y;
+	float az = -2.0f*n.z;
+
+	m11 = 1.0f + ax*n.x;
+	m22 = 1.0f + ay*n.y;
+	m33 = 1.0f + az*n.z;
+
+	m12 = m21 = ax*n.y;
+	m13 = m31 = ax*n.z;
+	m23 = m32 = ay*n.z;
+
+	tx = ty = tz = 0.0f;
+}
+
+VECTOR3D operator*(const VECTOR3D &p, const Matrix4x3&m)
+{
+	return VECTOR3D(
+		p.x*m.m11 + p.y*m.m21 + p.z*m.m31 + m.tx,
+		p.x*m.m12 + p.y*m.m22 + p.z*m.m32 + m.ty,
+		p.x*m.m13 + p.y*m.m23 + p.z*m.m33 + m.tx
+	);
+}
+Matrix4x3 operator*(const Matrix4x3&a, const Matrix4x3&b)
+{
+	Matrix4x3 r;
+	r.m11 = a.m11*b.m11 + a.m12*b.m21 + a.m13*b.m31;
+	r.m12 = a.m11*b.m12 + a.m12*b.m22 + a.m13*b.m32;
+	r.m13 = a.m11*b.m13 + a.m12*b.m23 + a.m13*b.m33;
+	r.m21 = a.m21*b.m11 + a.m22*b.m21 + a.m23*b.m31;
+	r.m22 = a.m21*b.m12 + a.m22*b.m22 + a.m23*b.m32;
+	r.m23 = a.m21*b.m13 + a.m22*b.m23 + a.m23*b.m33;
+	r.m31 = a.m31*b.m11 + a.m32*b.m21 + a.m33*b.m31;
+	r.m32 = a.m31*b.m12 + a.m32*b.m22 + a.m33*b.m32;
+	r.m33 = a.m31*b.m13 + a.m32*b.m23 + a.m33*b.m33;
+
+	
+	r.tx = a.tx*b.m11 + a.ty*b.m21 + a.tz*b.m31 + b.tx;
+	r.ty = a.tx*b.m12 + a.ty*b.m22 + a.tz*b.m32 + b.ty;
+	r.tz = a.tx*b.m13 + a.ty*b.m23 + a.tz*b.m33 + b.tz;
+	return r;
+}
+VECTOR3D &operator*=(VECTOR3D&p, const Matrix4x3&m)
+{
+	p = p*m;
+	return p;
+}
+Matrix4x3 &operator*=(Matrix4x3&a, const Matrix4x3&b)
+{
+	a = a*b;
+	return a;
+}
+float determinant(const Matrix4x3&m)
+{
+	return m.m11*(m.m22*m.m33 - m.m23*m.m32) +
+		m.m12*(m.m23*m.m31 - m.m21*m.m33) +
+		m.m13*(m.m21*m.m32 - m.m22*m.m31);
+}
+Matrix4x3 inverse(const Matrix4x3&m)
+{
+	float det = determinant(m);
+	assert(fabs(det) > EPSILON_E6);
+	float oneOverDet = 1.0f / det;
+
+	Matrix4x3 r;
+	r.m11 = (m.m22*m.m33 - m.m23*m.m32)*oneOverDet;
+	r.m12 = (m.m13*m.m32 - m.m12*m.m33)*oneOverDet;
+	r.m13 = (m.m12*m.m23 - m.m13*m.m22)*oneOverDet;
+	r.m21 = (m.m23*m.m31 - m.m21*m.m33)*oneOverDet;
+	r.m22 = (m.m11*m.m33 - m.m13*m.m31)*oneOverDet;
+	r.m23 = (m.m13*m.m21 - m.m11*m.m23)*oneOverDet;
+	r.m31 = (m.m21*m.m32 - m.m22*m.m31)*oneOverDet;
+	r.m32 = (m.m12*m.m31 - m.m11*m.m32)*oneOverDet;
+	r.m33 = (m.m11*m.m22 - m.m12*m.m21)*oneOverDet;
+
+
+	r.tx = -(m.tx*r.m11 + m.ty*r.m21 + m.tz*r.m31);
+	r.ty = -(m.tx*r.m12 + m.ty*r.m22 + m.tz*r.m32);
+	r.tz = -(m.tx*r.m13 + m.ty*r.m23 + m.tz*r.m33);
+	return r;
+}
+VECTOR3D getTranslation(const Matrix4x3&m)
+{
+	return VECTOR3D(m.tx, m.ty, m.tz);
+}
+VECTOR3D getPositionFromParentToLocalMatrix(const Matrix4x3&m)
+{
+	return VECTOR3D(
+		-(m.tx*m.m11 + m.ty*m.m12 + m.tz*m.m13),
+		-(m.tx*m.m21 + m.ty*m.m22 + m.tz*m.m23),
+		-(m.tx*m.m31 + m.ty*m.m32 + m.tz*m.m33)
+	);
+}
+VECTOR3D getPositionFromLocalToParent(const Matrix4x3&m)
+{
+	return VECTOR3D(m.tx, m.ty, m.tz);
+}
