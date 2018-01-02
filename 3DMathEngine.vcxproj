@@ -101,7 +101,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -146,10 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="3DMathEngine.h" />
     <ClInclude Include="EulerAngles.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="Matrix4x3.h" />
+    <ClInclude Include="Obeject.h" />
     <ClInclude Include="Parmline.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RotationMatrix.h" />
@@ -159,6 +159,7 @@
     <ClCompile Include="EulerAngles.cpp" />
     <ClCompile Include="MathUtil.cpp" />
     <ClCompile Include="Matrix4x3.cpp" />
+    <ClCompile Include="Obeject.cpp" />
     <ClCompile Include="Parmline.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RotationMatrix.cpp" />

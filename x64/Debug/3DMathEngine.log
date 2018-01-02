@@ -1,1 +1,9 @@
-﻿
+﻿  源.cpp
+g:\github\3dmathengine\mathutil.h(27): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+g:\github\3dmathengine\mathutil.h(28): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+g:\github\3dmathengine\源.cpp(11): warning C4838: 从“double”转换到“float”需要收缩转换
+g:\github\3dmathengine\源.cpp(11): warning C4305: “初始化”: 从“double”到“float”截断
+g:\github\3dmathengine\源.cpp(12): warning C4838: 从“double”转换到“float”需要收缩转换
+g:\github\3dmathengine\源.cpp(12): warning C4305: “初始化”: 从“double”到“float”截断
+  3DMathEngine.vcxproj -> G:\Github\3DMathEngine\x64\Debug\3DMathEngine.exe
+  3DMathEngine.vcxproj -> G:\Github\3DMathEngine\x64\Debug\3DMathEngine.pdb (Full PDB)

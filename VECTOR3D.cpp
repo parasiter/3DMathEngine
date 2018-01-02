@@ -20,3 +20,10 @@ float Distance(const VECTOR3D &a, const VECTOR3D &b)
 	float dz = a.z - b.z;
 	return sqrt(dx*dx + dy*dy + dz*dz);
 }
+
+
+ostream& operator<<(ostream& out, const VECTOR3D& v)
+{
+	out << v.x << ' ' << v.y << ' ' << v.z << endl;
+	return out;
+}

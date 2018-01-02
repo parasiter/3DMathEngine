@@ -11,20 +11,14 @@ Matrix3x3 M;M：旋转序列,旋转物体，从A->B，依然是在惯性坐标系中描述。
 当将物体进行旋转时，v1*M = v2; M表示将点从物体坐标系的坐标变换到到惯性坐标系。
 v1 = v2*(M-1); M-1 : 表示将点从惯性坐标系的坐标变换到物体坐标系的坐标。
 欧拉角定义的是坐标系的变换，<h,p,b>对应于M-1表示为<-h,-p,-b>
-
-
-
-
-
 */
-
-
-
 class EulerAngles {
 public:
 	float heading, pitch, bank;
 	EulerAngles(){}
-	EulerAngles(float a,float b,float c):heading(a),pitch(b),bank(c){}
+	EulerAngles(float a,float b,float c):heading(a),pitch(b),bank(c){
+		canonize();
+	}
 	//置零
 	inline void identify() { heading = 0.0f, pitch = 0.0f, bank = 0.0f; }
 	//变换为限制集欧拉角（万向锁问题）

@@ -1,4 +1,6 @@
 #pragma once
+#include<iostream>
+using namespace std;
 
 class VECTOR3D;
 class EulerAngles;
@@ -15,6 +17,10 @@ q = <cos(θ/2+PI),x*sin(θ/2+PI),y*sin(θ/2+PI),z*sin(θ/2+PI)> = < -w, -v> = -q
 class Quaternion {
 public:
 	float w, x, y, z;
+	Quaternion() {}
+	Quaternion(float a, float b, float c, float d) :w(a), x(b), y(c), z(d) {}
+	Quaternion(VECTOR3D n);
+	Quaternion(VECTOR3D n, float theta);
 	//单位四元数，q = <1,0>;theta = 0,即未发生旋转。
 	inline void identity() { w = 1.0f; x = y = z = 0.0f; }
 	//构造按指定轴旋转的四元数
@@ -28,7 +34,7 @@ public:
 
 	Quaternion operator*(const Quaternion&) const;
 	Quaternion operator*=(const Quaternion&);
-
+	operator VECTOR3D();
 	void normalize();
 
 	float getRotationAngle() const;
@@ -39,6 +45,7 @@ extern const Quaternion QuaternionIdentity;
 extern float dotProduct(const Quaternion&, const Quaternion&);
 extern Quaternion slerp(const Quaternion&, const Quaternion&, float t);
 //四元数共轭
-extern Quaternion conjugate(const Quaternion&);
+Quaternion conjugate(const Quaternion&);
 //四元数的幂
 extern Quaternion pow(const Quaternion &q, float exponent);
+extern ostream& operator<<(ostream&out, const Quaternion& q);

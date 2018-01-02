@@ -5,6 +5,23 @@
 
 const Quaternion QuaternionIdentity = { 1.0f,0.0f, 0.0f,0.0f };
 
+Quaternion::Quaternion(VECTOR3D n){
+	w = 0.0f;
+	x = n.x;
+	y = n.y;
+	z = n.z;
+	wrapPi(ANG_TO_RAD(180));
+}
+ 
+Quaternion::Quaternion(VECTOR3D n, float theta) {
+	float ct, st;
+	sinCos(&st, &ct, theta*0.5);
+	w = ct;
+	x = n.x*st;
+	y = n.y*st;
+	z = n.z*st;
+}
+
 void Quaternion::setToRotateAboutX(float theta)
 {
 	float halftheta = theta *0.5f;
@@ -82,6 +99,9 @@ Quaternion Quaternion::operator*=(const Quaternion&q)
 {
 	*this = *this *q;
 	return *this;
+}
+Quaternion::operator VECTOR3D() {
+	return VECTOR3D(x, y, z);
 }
 
 void Quaternion::normalize()
@@ -198,4 +218,10 @@ Quaternion pow(const Quaternion &q, float exponent)
 	result.y = q.y*mul;
 	result.z = q.z*mul;
 	return result;
+}
+
+ostream& operator<<(ostream&out, const Quaternion& q)
+{
+	out << q.w << ' ' << q.x << ' ' << q.y << ' ' << q.z << ' ' << endl;
+	return out;
 }

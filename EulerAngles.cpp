@@ -27,7 +27,7 @@ void EulerAngles::canonize()
 	{
 		bank = wrapPi(bank);
 	}
-	heading = wrapPi(bank);
+	heading = wrapPi(heading);
 }
 //从物体到惯性坐标系旋转的四元数，得出欧拉角。欧拉角仅表示将物体从惯性坐标旋转至目的坐标（目的物体坐标系）
 void EulerAngles::FromObjectToIntertialQuaternion(const Quaternion &q)

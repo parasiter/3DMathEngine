@@ -5,23 +5,18 @@
 #include"RotationMatrix.h"
 #include<cassert>
 
-inline void Matrix4x3::identity()
+Matrix4x3::Matrix4x3(float* f)
 {
-	m11 = 1.0f, m12 = 0.0f, m13 = 0.0f;
-	m21 = 0.0f, m22 = 1.0f, m23 = 0.0f;
-	m11 = 0.0f, m12 = 0.0f, m13 = 1.0f;
-	tx = ty = tz = 0.0f;
+	memcpy(data, f, 48);
 }
-void Matrix4x3::zeroTranslation()
-{
-	tx = ty = tz = 0.0f;
-}
+
 void Matrix4x3::setTranslation(const VECTOR3D&v)
 {
 	tx = v.x;
 	ty = v.y;
 	tz = v.z;
 }
+
 void Matrix4x3::setupTranslation(const VECTOR3D&v)
 {
 	m11 = 1.0f, m12 = 0.0f, m13 = 0.0f;
@@ -236,7 +231,7 @@ void Matrix4x3::setupProject(const VECTOR3D&n)
 	tx = ty = tz = 0.0f;
 }
 //°´×ø±êÖá·´Éä
-void Matrix4x3::setupReflect(int axis, float k = 0.0f)
+void Matrix4x3::setupReflect(int axis, float k)
 {
 	switch (axis)
 	{
@@ -370,4 +365,13 @@ VECTOR3D getPositionFromParentToLocalMatrix(const Matrix4x3&m)
 VECTOR3D getPositionFromLocalToParent(const Matrix4x3&m)
 {
 	return VECTOR3D(m.tx, m.ty, m.tz);
+}
+
+ostream& operator<<(ostream& out, const Matrix4x3& m)
+{
+	out << m.m11 << ' ' << m.m12 << ' ' << m.m13 << endl;
+	out << m.m21 << ' ' << m.m22 << ' ' << m.m23 << endl;
+	out << m.m31 << ' ' << m.m32 << ' ' << m.m33 << endl;
+	out << m.tx << ' ' << m.ty << ' ' << m.tz << endl;
+	return out;
 }

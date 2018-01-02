@@ -4,7 +4,7 @@
 float wrapPi(float theta)
 {
 	theta += PI;
-	theta -= floor(theta*ReciprocalPI)*TwoPI;
+	theta -= floor(theta*ReciprocalTwoPI)*TwoPI;
 	theta -= PI;
 	return theta;
 }
@@ -21,3 +21,4 @@ float safeAcos(float x)
 	}
 	return acos(x);
 }
+
