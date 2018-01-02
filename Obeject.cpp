@@ -223,9 +223,69 @@ void Transform_Object4Dv1(Object4Dv1 *object, Matrix4x3 matrix, int coord_select
 	{
 	case TRANSFORM_LOCAL_ONLY:
 	{
-
-	}
+		for (int vertex = 0; vertex < object->num_vertices; ++vertex)
+		{
+			object->vlist_local[vertex] *= matrix;
+		}
+	}break;
+	case TRANSFORM_TRANS_ONLY:
+	{
+		for (int vertex = 0; vertex < object->num_vertices; ++vertex)
+		{
+			object->vlist_trans[vertex] *= matrix;
+		}
+	}break;
+	case TRANSFORM_LOCAL_TO_TRANS:
+	{
+		for (int vertex = 0; vertex < object->num_vertices; ++vertex)
+		{
+			object->vlist_trans[vertex] =object->vlist_local[vertex]* matrix;
+		}
+	}break;
 	default:
 		break;
+	}
+	if (transform_basis)
+	{
+		object->ux *= matrix;
+		object->uy *= matrix;
+		object->uz *= matrix;
+	}
+}
+void Translation_LocalToWorld_Object(Object4Dv1 *obj, int coord_select = TRANSFORM_LOCAL_TO_TRANS)
+{
+	for (int index = 0; index < obj->num_vertices; ++index)
+	{
+		if (coord_select == TRANSFORM_LOCAL_TO_TRANS)
+		{
+			obj->vlist_trans[index] = obj->vlist_local[index] + obj->world_pos;
+		}
+		else//transform_trans_only
+		{
+			obj->vlist_trans[index] += obj->world_pos;
+		}
+	}
+}
+void Build_LocalToWorld_Translation_Matrix4x3(const VECTOR3D &pos, Matrix4x3 &m)
+{
+	m.setupTranslation(pos);
+}
+void Translation_LocalToWorld_RenderList(Renderlist4Dv1* rend, const VECTOR3D& world_pos, int coord_select = TRANSFORM_LOCAL_TO_TRANS)
+{
+	for (int index = 0; index < rend->num_polys; ++index)
+	{
+		PolyF4Dv1* cur_poly = rend->poly_ptrs[index];
+		if (cur_poly == nullptr || !(cur_poly->state & POLY4Dv1_STATE_ACTIVE) || (cur_poly->state&POLY4Dv1_STATE_CLIPPED) || (cur_poly->state&POLY4Dv1_STATE_BACKFACE))
+			continue;
+		if (coord_select == TRANSFORM_LOCAL_TO_TRANS)
+		{
+			for (int i = 0; i < 3; ++i)
+				cur_poly->tvlist[i] = cur_poly->vlist[i] + world_pos;
+		}
+		else//transform_trans_only 
+		{
+			for (int i = 0; i < 3; ++i)
+				cur_poly->tvlist[i] += world_pos;
+		}
 	}
 }

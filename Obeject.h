@@ -37,7 +37,7 @@ public:
 	int state = 0;
 	int attr = 0;
 	int color = 0;
-	vector<VECTOR3D> vlist;//顶点列表
+	VECTOR3D* vlist;//顶点列表
 	int vert[3];//顶点列表的索引
 };
 
@@ -100,3 +100,6 @@ char *GetLinePLX(char *buffer, int maxlength, FILE *fp);
 int Load_Object4Dv1_PLX(Object4Dv1* object, char *filename, VECTOR3D scale, VECTOR3D pos, VECTOR3D rotate);
 void Transform_Renderlist4Dv1(Renderlist4Dv1* rend_list, Matrix4x3 matrix, int coord_select);//将渲染列表按矩阵变换，最后一个参数指定要变换的数组:vlist还是tvlist
 void Transform_Object4Dv1(Object4Dv1 *object, Matrix4x3 matrix, int coord_select, int transform_basis);//coord_select同上，transform_basis决定是否对朝向进行变换
+void Translation_LocalToWorld_Object(Object4Dv1 *obj, int coord_select = TRANSFORM_LOCAL_TO_TRANS);//执行平移操作
+void Build_LocalToWorld_Translation_Matrix4x3(const VECTOR3D &pos, Matrix4x3 &m);//设置平移矩阵
+void Translation_LocalToWorld_RenderList(Renderlist4Dv1 rend, const VECTOR3D& world_pos, int coord_select = TRANSFORM_LOCAL_TO_TRANS);//对渲染列表执行平移
